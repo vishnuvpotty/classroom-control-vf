@@ -52,7 +52,7 @@ node default {
   # content => 'Hello test file manage in puppet',
   # }
   
-  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+  exec { 'Hi testing exec commands.' > /etc/motd:
        path => '/usr/bin:/usr/local/bin',
        creates => '/etc/motd',
        }
