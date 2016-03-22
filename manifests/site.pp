@@ -52,10 +52,16 @@ node default {
   # content => 'Hello test file manage in puppet',
   # }
   
+  #7.2
   exec {"cowsay 'Hi  This is ${::fqdn}!' > /etc/motd":
        path => '/usr/bin:/usr/local/bin',
        creates => '/etc/motd',
        }
        
+  #exercise 7.3
+  host {'vishnuvpotty.puppetlabs.vm':
+       ensure => present
+       ip =>127.0.0.1
+   }
        
 }
