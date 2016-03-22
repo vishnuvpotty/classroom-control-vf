@@ -52,9 +52,9 @@ node default {
   # content => 'Hello test file manage in puppet',
   # }
   
-exec { 'updatedb':
-  path    => '/usr/bin',
-  creates => '/var/lib/mlocate/mlocate.db',
-}
+  exec {"cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+       path => '/usr/bin:/usr/local/bin',
+       creates => '/etc/motd',
+       }
        
 }
