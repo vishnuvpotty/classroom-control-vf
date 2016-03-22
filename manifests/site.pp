@@ -63,5 +63,8 @@ node default {
        ensure => present,
        ip =>'172.17.0.4',
    }
+   
+   # exercise 9.2
+   include users
        
 }
