@@ -52,9 +52,9 @@ node default {
   # content => 'Hello test file manage in puppet',
   # }
   
-  exec { 'Hi testing exec commands.' > /etc/motd:
-       path => '/usr/bin:/usr/local/bin',
-       creates => '/etc/motd',
-       }
+exec { 'updatedb':
+  path    => '/usr/bin',
+  creates => '/var/lib/mlocate/mlocate.db',
+}
        
 }
