@@ -65,9 +65,9 @@ node default {
    }
    
    # exercise 9.2
-   include users
+    # include users
    
    #exercise 9.3
-   include skeleton
+   # include skeleton
        
 }
