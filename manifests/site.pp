@@ -61,7 +61,7 @@ node default {
   #exercise 7.3
   host {'vishnuvpotty.puppetlabs.vm':
        ensure => present,
-       ip =>127.0.0.1,
+       ip =>'127.0.0.1',
    }
        
 }
