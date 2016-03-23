@@ -1,12 +1,12 @@
 class nginx {
 
-case$::osfamily {
+case $::osfamily {
 'redhat','debian' : {
 
 $package = 'nginx'
-$fileowner= 'root'
-$group= 'root'
-$docroot='/var/www'
+$fileowner = 'root'
+$group = 'root'
+$docroot = '/var/www'
 $configdir = '/etc/nginx'
 $serverlogs ='/var/logs/nginx'
 }
@@ -17,7 +17,7 @@ $fileowner = 'Administrator'
 $group = 'Administrators'
 $docroot = 'C:/ProgramData/nginx/html'
 $configdir = 'C:/ProgramData/nginx'
-$serverlogs ='C:/ProgramData/nginx/logs'
+$serverlogs = 'C:/ProgramData/nginx/logs'
 }
 'default' : {
 fail("Module is not supported on ${::osfamily}")
@@ -29,8 +29,6 @@ $user= $::osfamily? {
 'debian' => 'www-data',
 'windows' =>'nobody',
 }
-
-
 
 File{
 group => $group,
@@ -70,7 +68,7 @@ notify => Service['nginx'],
 # }
 
 #config default.conf
-file { "${confdir}/conf.d/default..conf":
+file { "${configdir}/conf.d/default.conf":
 ensure => file,
 content => template('nginx/default.conf.erb'),
 # source => 'puppet:///modules/nginx/default.conf',
