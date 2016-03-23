@@ -1,6 +1,7 @@
 class nginx {
 package {'nginx':
 ensure => present,
+}
 
 #document root /var/www
 file {'/var/www':
@@ -18,6 +19,7 @@ group => root,
 owner => root,
 mode => '0664',
 source => 'puppet:///modules/nginx/index.html',
+}
 
 #config file nginx.conf
 file {'/etc/nginx/nginx.conf':
@@ -47,11 +49,10 @@ mode => '0664',
 source => 'puppet:///modules/nginx/default.conf',
 require => Package['nginx'],
 notify => Service['nginx'],
-
 }
+
 service { 'nginx':
 ensure => running,
 enable => true,
-
 }
 }
