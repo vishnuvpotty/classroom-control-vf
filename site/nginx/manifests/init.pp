@@ -52,7 +52,7 @@ source => 'puppet:///modules/nginx/index.html',
 }
 
 #config file nginx.conf
-file {"${configdir}/nginx.conf':
+file {"${configdir}/nginx.conf":
 ensure => file,
 content => template('nginx/nginx.conf.erb'),
 # source => 'puppet:///modules/nginx/nginx.conf',
