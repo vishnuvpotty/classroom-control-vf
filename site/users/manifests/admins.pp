@@ -1,9 +1,9 @@
 class users::admins {
-users::managed_user { 'joe': }
-users::managed_user { 'alice':
+users::managed_user { 'VVP': }
+users::managed_user { 'Hellouser':
 group => 'staff',
 }
-users::managed_user { 'aaron':
+users::managed_user { 'varun':
 group => 'staff',
 }
 group { 'staff':
