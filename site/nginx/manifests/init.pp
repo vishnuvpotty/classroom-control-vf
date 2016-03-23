@@ -8,7 +8,7 @@ $fileowner = 'root'
 $group = 'root'
 $docroot = '/var/www'
 $configdir = '/etc/nginx'
-$serverlogs ='/var/logs/nginx'
+$serverlogs ='/var/log/nginx'
 }
 
 'windows' : {
