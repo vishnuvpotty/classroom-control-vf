@@ -29,7 +29,6 @@ owner => root,
 mode => '0664',
 source => 'puppet:///modules/nginx/nginx.conf',
 require => Package['nginx'],
-subscribe => Service['nginx'],
 notify => Service['nginx'],
 }
 
