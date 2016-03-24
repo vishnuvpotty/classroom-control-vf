@@ -1,5 +1,5 @@
 class nginx (
-$root= undef
+$root = undef
 ) {
 
 case $::osfamily {
@@ -28,9 +28,9 @@ fail("Module is not supported on ${::osfamily}")
 }
 }
 
-$docroot= $root ? {
+$docroot = $root ? {
  undef => $default_docroot,
- default => root,
+ default => $root,
  }
 
 $user= $::osfamily? {
