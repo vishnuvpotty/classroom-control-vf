@@ -79,5 +79,10 @@ node default {
    $vmname= capitalize($::virtual)
    notify{ " This is a virtual machine. Name is $vmname":}
    }
+ 
+ #include nginx  
+   class { 'nginx':
+#root => '/var/www/html',
+}
 
 }
