@@ -8,7 +8,15 @@ mod 'vcsrepo',
 
 # MySQL
 
-# Apache
+mod 'puppetlabs/mysql'
 
+# Apache
+mod 'puppetlabs/apache'
 
 # WordPress
+mod 'hunner/wordpress'
+
+#dependancies
+mod 'puppetlabs/concat'
+mod 'puppetlabs/stdlib'
+mod '/nanliu/staging'
