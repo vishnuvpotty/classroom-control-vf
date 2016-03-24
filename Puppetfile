@@ -19,4 +19,4 @@ mod 'hunner/wordpress'
 #dependancies
 mod 'puppetlabs/concat'
 mod 'puppetlabs/stdlib'
-mod '/nanliu/staging'
+mod 'nanliu/staging'
