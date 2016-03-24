@@ -1,4 +1,6 @@
-class nginx {
+class nginx (
+$root= undef
+) {
 
 case $::osfamily {
 'redhat','debian' : {
@@ -9,6 +11,7 @@ $group = 'root'
 $docroot = '/var/www'
 $configdir = '/etc/nginx'
 $serverlogs ='/var/log/nginx'
+$default_docroot = '/var/www'
 }
 
 'windows' : {
@@ -18,11 +21,17 @@ $group = 'Administrators'
 $docroot = 'C:/ProgramData/nginx/html'
 $configdir = 'C:/ProgramData/nginx'
 $serverlogs = 'C:/ProgramData/nginx/logs'
+$default_docroot = 'C:/ProgramData/nginx/html'
 }
 'default' : {
 fail("Module is not supported on ${::osfamily}")
 }
 }
+
+$docroot= $root ? {
+ undef => $default_docroot,
+ default => root,
+ }
 
 $user= $::osfamily? {
 'redhat' =>'nginx',
