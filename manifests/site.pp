@@ -80,9 +80,9 @@ node default {
    notify{ " This is a virtual machine. Name is $vmname":}
    }
  
- #include nginx  
-   class { 'nginx':
-#root => '/var/www/html',
-}
+   #include nginx  
+   # class { 'nginx':
+   # root => '/var/www/html',
+   # }
 
 }
