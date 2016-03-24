@@ -69,12 +69,9 @@ content => template('nginx/nginx.conf.erb'),
 notify => Service['nginx'],
 }
 
-# file { '/etc/nginx/conf.d':
-# ensure => directory,
-# owner => 'root',
-# group => 'root',
-# mode => '0775',
-# }
+ file { "${configdir}/conf.d":
+ ensure => directory,
+ }
 
 #config default.conf
 file { "${configdir}/conf.d/default.conf":
