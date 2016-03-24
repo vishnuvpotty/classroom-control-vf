@@ -1,43 +1,17 @@
 class nginx (
-$root = undef
-) {
+$package = $nginx::params::package,
+$fileowner = $nginx::params::fileowner,
+$group = $nginx::params::group,
+$docroot =$nginx::params::docroot,
+$configdir = $nginx::params::configdir,
+$serverlogs = $nginx::params::serverlogs,
+# $root = undef
+) inherits nginx::params {
 
-case $::osfamily {
-'redhat','debian' : {
-
-$package = 'nginx'
-$fileowner = 'root'
-$group = 'root'
-# $docroot = '/var/www'
-$configdir = '/etc/nginx'
-$serverlogs ='/var/log/nginx'
-$default_docroot = '/var/www'
-}
-
-'windows' : {
-$package = 'nginx-service'
-$fileowner = 'Administrator'
-$group = 'Administrators'
-# $docroot = 'C:/ProgramData/nginx/html'
-$configdir = 'C:/ProgramData/nginx'
-$serverlogs = 'C:/ProgramData/nginx/logs'
-$default_docroot = 'C:/ProgramData/nginx/html'
-}
-'default' : {
-fail("Module is not supported on ${::osfamily}")
-}
-}
-
-$docroot = $root ? {
- undef => $default_docroot,
- default => $root,
- }
-
-$user= $::osfamily? {
-'redhat' =>'nginx',
-'debian' => 'www-data',
-'windows' =>'nobody',
-}
+# $docroot = $root ? {
+# undef => $default_docroot,
+# default => $root,
+# }
 
 File{
 group => $group,
