@@ -42,8 +42,13 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
-  notify { "Hello, my name is ${::hostname}, and testing puppet node. ": }
+  # notify { "Hello, my name is ${::hostname}, and testing puppet node. ": }
+
+  $my_message =hiera('message');
   
+   notify {"$my_message ":}
+   
+   
   # file { '/etc/motd' :
   # ensure => file,
   # owner => 'root',
