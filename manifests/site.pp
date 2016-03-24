@@ -82,7 +82,7 @@ node default {
  
    #include nginx  
     class { 'nginx':
-    root => '/var/www',
+    docroot => '/var/www',
     }
 
 }
